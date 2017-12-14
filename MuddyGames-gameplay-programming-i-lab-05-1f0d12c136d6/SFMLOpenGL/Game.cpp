@@ -23,9 +23,46 @@ void Game::run()
 	while (isRunning) {
 
 		cout << "Game running..." << endl;
-		//glTranslatef(1.0f, 0.0f, 0.0f);
-		//glRotatef(rotationAngle, 0.0f, 0.0f, 1.0f);
-		glScalef(1.0001f, 1.0001f, 1.0f);
+		if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+		{
+			glTranslatef(0.01f, 0.0f, 0.0f);
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+		{
+			glTranslatef(-0.01f, 0.0f, 0.0f);
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+		{
+			glTranslatef(0.0f, 0.01f, 0.0f);
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+		{
+			glTranslatef(0.0f, -0.01f, 0.0f);
+		}
+
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+		{
+			glRotatef(rotationAngle, 0.0f, 0.0f, 1.0f);
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+		{
+			glRotatef(-rotationAngle, 0.0f, 0.0f, 1.0f);
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+		{
+			glScalef(1.0001f, 1.0001f, 1.0f);
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+		{
+			glScalef(0.9999f, 0.9999f, 1.0f);
+		}
 		while (window.pollEvent(event))
 		{
 			if (event.type == Event::Closed)
@@ -81,8 +118,8 @@ void Game::draw()
 	glEnd(); 
 
 	glBegin(GL_LINES); {
-		glVertex3f(5.0, -10.0, -5.0);
-		glVertex3f(15.0, -10.0, -5.0);
+		glVertex3f(5.0, -11.0, -5.0);
+		glVertex3f(15.0, -11.0, -5.0);
 	}
 
 	glEnd();
@@ -97,6 +134,7 @@ void Game::draw()
 	glBegin(GL_LINE_LOOP); {
 		glVertex3f(5.0, -5.0, -5.0);
 		glVertex3f(15.0, -5.0, -5.0);
+		glVertex3f(15.0, -10.0,-5.0);
 	}
 
 	glEnd();
